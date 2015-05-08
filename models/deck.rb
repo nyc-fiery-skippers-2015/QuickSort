@@ -1,10 +1,11 @@
-require_relative "../models/card.rb"
-require_relative "../parser/parser.rb"
+# require_relative "../models/card.rb"
+# require_relative "../parser/parser.rb"
 class Deck
   attr_accessor :list_of_cards
 
   def initialize(list_of_cards)
     @list_of_cards = list_of_cards
+    @word_arr = []
   end
 
   def filter(choice)
@@ -33,10 +34,17 @@ class Deck
     list_of_cards.shift
   end
 
+  def wrong_arr(card)
+    @word_arr << "#{card.question}\n#{card.answer}"
+  end
+  def wrong_word_arr
+    @word_arr
+  end
+
   def wrong_answer
     list_of_cards.rotate!
   end
 end
 
-test = Deck.new(Parser.parse('../flashcards.txt'))
-p test.filter(2)
+# test = Deck.new(Parser.parse('../flashcards.txt'))
+# p test.filter(2)
