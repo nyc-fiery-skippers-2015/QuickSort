@@ -23,7 +23,7 @@ class Controller
         if list_of_card_obj.check_answer(ans)
           list_of_card_obj.right_answer
           View.correct
-          sleep(3.0)
+          sleep(1.5)
           View.continue
           answer = View.input
           if answer.include?('y')
@@ -35,7 +35,7 @@ class Controller
           list_of_card_obj.wrong_answer
           View.wrong
           View.quiz_card_name(list_of_card_obj.list_of_cards[0])
-          sleep(2.0)
+          sleep(1.5)
           View.continue
           answer = View.input
           if answer.include?('y')
