@@ -1,9 +1,20 @@
 require_relative "../models/card.rb"
+require_relative "../parser/parser.rb"
 class Deck
   attr_accessor :list_of_cards
 
   def initialize(list_of_cards)
     @list_of_cards = list_of_cards
+  end
+
+  def filter(choice)
+    if choice.to_i == 2
+      list_of_cards.select!{|card| card.last_result == true}
+    elsif choice.to_i == 3
+      list_of_cards.sort_by!{|card| card.lifetime_wrong}.reverse!.shift(10)
+    else
+      return list_of_cards
+    end
   end
 
   def shuffle_deck
@@ -26,3 +37,6 @@ class Deck
     list_of_cards.rotate!
   end
 end
+
+test = Deck.new(Parser.parse('../flashcards.txt'))
+p test.filter(2)
