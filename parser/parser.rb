@@ -11,4 +11,4 @@ module Parser
   end
 end
 
-p Parser.parse('../flashcards.txt')
+# p Parser.parse('../flashcards.txt').length

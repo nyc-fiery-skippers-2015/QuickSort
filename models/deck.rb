@@ -17,12 +17,11 @@ class Deck
     list_of_cards[0].answer == input
   end
 
-  def move_card
-    if check_answer == true
-      list_of_cards.shift
-    else
-      list_of_cards.rotate!
-      # list_of_cards << list_of_cards.shift
-    end
+  def right_answer
+    list_of_cards.shift
+  end
+
+  def wrong_answer
+    list_of_cards.rotate!
   end
 end
