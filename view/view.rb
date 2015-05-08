@@ -24,7 +24,7 @@ class View
     puts "#{card.answer}"
   end
 
-  def continue
+  def self.continue
     puts "Would you like to continue to the next card?"
   end
 
