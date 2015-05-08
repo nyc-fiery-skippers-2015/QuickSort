@@ -8,5 +8,8 @@ class Card
     @lifetime_wrong = args[:lifetime_wrong] || 0
   end
 
-
+  def got_wrong
+    self.last_result = true
+    self.lifetime_wrong += 1
+  end
 end

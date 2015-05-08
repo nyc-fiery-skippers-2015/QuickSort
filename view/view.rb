@@ -10,6 +10,14 @@ class View
   def self.confirm
     puts 'Are you ready to play?'
   end
+  def self.deck_select
+    puts 'Which deck would you like to use?'
+    puts <<-EON
+      1. All cards
+      2. Only cards you got wrong last time
+      3. 10 Cards You Get Wrong Most Often (for you)
+    EON
+  end
   def self.welcome
     puts "So lets review your flaschards"
   end
