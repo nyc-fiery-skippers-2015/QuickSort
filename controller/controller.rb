@@ -20,6 +20,11 @@ class Controller
       system 'clear'
         View.quiz_card(list_of_card_obj.list_of_cards[0])
         ans = View.input
+        if list_of_card_obj.check_answer(ans)
+          View.correct
+        else
+          View.wrong
+        end
       # end
     end
 
