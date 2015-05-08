@@ -7,4 +7,5 @@ class Card
     @correctness = args[:correctness] || false
   end
 
+
 end
