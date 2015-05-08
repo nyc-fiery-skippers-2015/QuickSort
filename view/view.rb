@@ -17,14 +17,22 @@ class View
   def self.quiz_card(card)
     puts "What is:"
     puts "#{card.question}"
+    puts "Please type your answer"
   end
 
+  def self.quiz_card_name(card)
+    puts "#{card.answer}"
+  end
+
+  def continue
+    puts "Would you like to continue to the next card?"
+  end
 
   def self.input
     gets.chomp
   end
   def self.correct
-    puts "You got this right, next card!"
+    puts "You got this right!"
   end
   def self.wrong
     puts "You got this wrong, here is the answer."
