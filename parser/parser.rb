@@ -9,6 +9,16 @@ module Parser
     end
     flashcard_arr
   end
-end
 
-# p Parser.parse('../flashcards.txt')
+  def self.save(filename, list)
+    # arr = Parser.parse('../flashcards.txt')
+    File.open(filename, 'wb') do |file|
+      list.each do |obj|
+        file.write("#{obj.question}\n#{obj.answer}\n#{obj.last_result}\n#{obj.lifetime_wrong}\n")
+      end
+    end
+    # file.close
+  end
+end
+# Parser.save("test.txt")
+# p Parser.parse('test.txt')

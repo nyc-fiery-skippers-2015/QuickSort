@@ -18,8 +18,16 @@ class View
       3. 10 Cards You Get Wrong Most Often (for you)
     EON
   end
+  def self.review
+    puts 'Would you like to see what you got wrong?'
+  end
+
   def self.welcome
     puts "So lets review your flaschards"
+  end
+  def self.wrong_answers(list)
+   puts list.wrong_word_arr
+
   end
 
   def self.quiz_card(card)
