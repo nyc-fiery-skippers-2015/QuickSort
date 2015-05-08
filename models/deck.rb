@@ -1,3 +1,4 @@
+require_relative "../models/card.rb"
 class Deck
   attr_accessor :list_of_cards
 
