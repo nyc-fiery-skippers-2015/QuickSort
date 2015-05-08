@@ -1,9 +1,27 @@
 class View
-  def self.welcome
-    puts "Hey lets review your flaschards"
+
+  def self.rules
+    system 'clear'
+    puts '*' * 85
+    puts 'This is your flash-card game. You have one shot(one oppurtunity) to answer each card.'
+    puts '*' * 85
   end
+
+  def self.confirm
+    puts 'Are you ready to play?'
+  end
+  def self.welcome
+    puts "So lets review your flaschards"
+  end
+
+  def self.quiz_card(card)
+    puts "What is:"
+    puts "#{card.question}"
+  end
+
+
   def self.input
-    input = gets.chomp
+    gets.chomp
   end
   def self.correct
     puts "You got this right, next card!"
