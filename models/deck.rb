@@ -1,8 +1,8 @@
 class Deck
   attr_reader :list_of_cards
 
-  def initialize
-    @list_of_cards = []
+  def initialize(list_of_cards)
+    @list_of_cards = list_of_cards
   end
 
   def shuffle_deck
