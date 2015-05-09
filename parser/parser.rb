@@ -32,6 +32,4 @@ module Parser
     end
   end
 end
-p Parser.deck_parse('../controller/testing_time.txt')
-# Parser.save("test.txt")
-# p Parser.parse('../controller/control_test.txt')
+

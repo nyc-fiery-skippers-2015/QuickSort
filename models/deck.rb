@@ -50,5 +50,3 @@ class Deck
   end
 end
 
-test = Deck.new(Parser.parse('../controller/control_test1.txt'))
-  p test.filter(2)
