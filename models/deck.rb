@@ -8,7 +8,7 @@ class Deck
     @word_arr = []
   end
 
-  def filter(choice)
+  def filter!(choice)
     if choice.to_i == 2
       list_of_cards.select!{|card| card.last_result == true}
     elsif choice.to_i == 3
@@ -18,7 +18,7 @@ class Deck
     end
   end
 
-  def shuffle_deck
+  def shuffle_deck!
     list_of_cards.shuffle!
   end
 
@@ -30,18 +30,18 @@ class Deck
     list_of_cards[0].answer == input
   end
 
-  def right_answer
-    list_of_cards.shift
+  def right_answer!
+    list_of_cards.rotate!
   end
 
-  def wrong_arr(card)
-    @word_arr << "#{card.question}\n#{card.answer}"
+  def wrong_arr!(card)
+    @word_arr << "Question:\n#{card.question}\nAnswer:  #{card.answer}\n\n"
   end
   def wrong_word_arr
     @word_arr
   end
 
-  def wrong_answer
+  def wrong_answer!
     list_of_cards.rotate!
   end
 end

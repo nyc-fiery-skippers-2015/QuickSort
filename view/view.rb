@@ -14,7 +14,7 @@ class View
     puts 'Which deck would you like to use?'
     puts <<-EON
       1. All cards
-      2. Only cards you got wrong last time
+      2. Cards
       3. 10 Cards You Get Wrong Most Often (for you)
     EON
   end
