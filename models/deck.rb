@@ -1,18 +1,22 @@
-# require_relative "../models/card.rb"
-# require_relative "../parser/parser.rb"
+require_relative "../models/card.rb"
+require_relative "../parser/parser.rb"
 class Deck
+  attr_reader :time
   attr_accessor :list_of_cards
 
   def initialize(list_of_cards)
     @list_of_cards = list_of_cards
+    @time = Time.now
     @word_arr = []
   end
 
-  def filter!(choice)
-    if choice.to_i == 2
-      list_of_cards.select!{|card| card.last_result == true}
+  def filter(choice)
+    if choice.to_i == 1
+      list_of_cards
+    elsif choice.to_i == 2
+      list_of_cards.select{|card| card.last_result == 'true'}
     elsif choice.to_i == 3
-      list_of_cards.sort_by!{|card| card.lifetime_wrong}.reverse!.shift(10)
+      list_of_cards.sort_by{|card| card.lifetime_wrong}.reverse!.first(10)
     else
       return list_of_cards
     end
@@ -46,5 +50,5 @@ class Deck
   end
 end
 
-# test = Deck.new(Parser.parse('../flashcards.txt'))
-# p test.filter(2)
+test = Deck.new(Parser.parse('../controller/control_test1.txt'))
+  p test.filter(2)

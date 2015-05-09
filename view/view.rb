@@ -14,7 +14,7 @@ class View
     puts 'Which deck would you like to use?'
     puts <<-EON
       1. All cards
-      2. Cards
+      2. Cards you got wrong last time
       3. 10 Cards You Get Wrong Most Often (for you)
     EON
   end
@@ -27,7 +27,18 @@ class View
   end
   def self.wrong_answers(list)
    puts list.wrong_word_arr
+  end
 
+  def self.spaced_output(num)
+    if num < 1
+      puts "You're okay, you did this one today"
+    elsif num == 1
+      puts "You did this one yesterday, keep on track"
+    elsif num == 2
+      puts "You missed a day, make sure you get yourself back on track!"
+    elsif num >= 2
+      puts "You're slacking off, I'm disappointed in you"
+    end
   end
 
   def self.quiz_card(card)
