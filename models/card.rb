@@ -4,8 +4,8 @@ class Card
   def initialize(args={})
     @question = args[:question]
     @answer = args[:answer]
-    @last_result = false
-    @lifetime_wrong = 0
+    @last_result = args[:last_result]
+    @lifetime_wrong = args[:lifetime_wrong]
   end
 
   def got_wrong!

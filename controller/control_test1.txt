@@ -1,15 +1,3 @@
-Opens a library, or module, within a Ruby Stream.
-module
-true
-1
-Bumps an iterator, or a while or until block, to the next iteration, unconditionally and without executing whatever may remain of the block.
-next
-true
-1
-A special "non-object"; it is, in fact, an object (the sole instance of NilClass), but connotes absence and indeterminacy. nil and false are the only two objects in Ruby that have Boolean falsehood (informally, that cause an if condition to fail).
-nil
-true
-1
 false, not false # true.
 not
 false
@@ -148,5 +136,17 @@ true
 1
 Used with for, helps define a for-loop.
 in
-false
-0
+true
+1
+Opens a library, or module, within a Ruby Stream.
+module
+true
+2
+Bumps an iterator, or a while or until block, to the next iteration, unconditionally and without executing whatever may remain of the block.
+next
+true
+2
+A special "non-object"; it is, in fact, an object (the sole instance of NilClass), but connotes absence and indeterminacy. nil and false are the only two objects in Ruby that have Boolean falsehood (informally, that cause an if condition to fail).
+nil
+true
+2

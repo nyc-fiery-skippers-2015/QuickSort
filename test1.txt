@@ -1,12 +1,9 @@
 To create a second name for the variable or method.
 alias
-false
-2
+
 A command that appends two or more objects together.
 and
-true
-2
+
 Designates code that must be run unconditionally at the beginning of the program before any other.
 BEGIN
-true
-2
+

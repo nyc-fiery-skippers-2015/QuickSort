@@ -4,7 +4,7 @@ module Parser
     flashcard_arr = []
     File.open(filename) do |row|
       row.each_line.each_slice(4) do |question, answer, last_result, lifetime_wrong|
-        flashcard_arr << Card.new({:question => question.delete("\n"), :answer => answer.delete("\n"), :last_result => last_result, :lifetime_wrong => lifetime_wrong})
+        flashcard_arr << Card.new({:question => question.delete("\n"), :answer => answer.delete("\n"), :last_result => last_result.delete("\n"), :lifetime_wrong => lifetime_wrong.delete("\n").to_i})
       end
     end
     flashcard_arr
@@ -17,8 +17,21 @@ module Parser
         file.write("#{obj.question}\n#{obj.answer}\n#{obj.last_result}\n#{obj.lifetime_wrong}\n")
       end
     end
-    # file.close
+  end
+
+  def self.deck_save(filename, deck)
+    File.open(filename, 'a+') do |file|
+      file.write("#{deck.time}\n")
+    end
+  end
+
+  def self.deck_parse(filename)
+    deck_time_arr = []
+    File.readlines(filename).map do |row|
+      row.delete("\n")
+    end
   end
 end
+p Parser.deck_parse('../controller/testing_time.txt')
 # Parser.save("test.txt")
-# p Parser.parse('test.txt')
+# p Parser.parse('../controller/control_test.txt')
