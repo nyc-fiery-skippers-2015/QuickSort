@@ -53,33 +53,32 @@ class Controller
       View.end
   end
 
+  def select_deck
+    View.deck_select
+    answer = View.input
+    list_of_card_obj.filter!(answer)
+  end
+
   def run
     intro_screen
     input = View.input
     if input.include?('y')
-      View.deck_select
-      answer = View.input
-      list_of_card_obj.filter!(answer)
+      select_deck
       list_of_card_obj.list_of_cards.length.times do
       system 'clear'
-        View.quiz_card(list_of_card_obj.list_of_cards[0])
-        ans = View.input
-        if list_of_card_obj.check_answer(ans)
-          controller_got_right
-          break if continue
-        else
-          controller_got_wrong
-          break if continue
-        end
+      View.quiz_card(list_of_card_obj.list_of_cards[0])
+      ans = View.input
+      if list_of_card_obj.check_answer(ans)
+        controller_got_right
+        break if continue
+      else
+        controller_got_wrong
+        break if continue
       end
+    end
       View.review
       aaa = View.input
       end_of_game(aaa)
-      # if aaa.include?("y")
-      #   View.wrong_answers(list_of_card_obj)
-      # end
-      #   View.quit
-      #   View.end
     end
 
   end
