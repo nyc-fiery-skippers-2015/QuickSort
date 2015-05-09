@@ -8,8 +8,12 @@ class Card
     @lifetime_wrong = 0
   end
 
-  def got_wrong
+  def got_wrong!
     self.last_result = true
     self.lifetime_wrong += 1
+  end
+
+  def got_right!
+    self.last_result = false
   end
 end
