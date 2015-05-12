@@ -14,12 +14,16 @@ class Controller
   def controller_got_right
     list_of_card_obj.list_of_cards[0].got_right!
     list_of_card_obj.right_answer!
-    Parser.save('control_test.txt', list_of_card_obj.list_of_cards)
     View.correct
+    save
   end
 
   def save_deck
     Parser.deck_save('testing_time.txt', list_of_card_obj)
+  end
+
+  def save
+    Parser.save('control_test1.txt', list_of_card_obj.list_of_cards)
   end
 
   def controller_got_wrong
@@ -28,7 +32,7 @@ class Controller
     list_of_card_obj.wrong_arr!(list_of_card_obj.list_of_cards[0].dup)
     list_of_card_obj.list_of_cards[0].got_wrong!
     list_of_card_obj.wrong_answer!
-    Parser.save('control_test1.txt', list_of_card_obj.list_of_cards)
+    save
   end
 
   def deck_parse
@@ -71,7 +75,8 @@ class Controller
     intro_screen
     input = View.input
     if input.include?('y')
-      select_deck.length.times do
+      spaced_repetition.length do
+        list_of_card_obj.sort_by_box!
         system 'clear'
         View.quiz_card(list_of_card_obj.list_of_cards[0])
         ans = View.input
@@ -93,14 +98,24 @@ class Controller
 
   def spaced_repetition
     time_obj = deck_parse
-    if time_obj.length > 1
-      last_time = time_obj[-1]
-      curr = Time.now.inspect.split.first.split("-").last.to_i
-      # binding.pry
-      num = curr - last_time.split.first.split("-").last.to_i
-      View.spaced_output(num)
+    curr = Time.now.inspect.split.first.split("-").last.to_i
+    if time_obj.length != 0
+      num = curr - time_obj[-1].split.first.split("-").last.to_i
     else
-      View.spaced_output(time_obj.length - 1)
+      num = 0
+    end
+    if time_obj.length > 1
+      View.spaced_output
+      list_of_card_obj.check_box_1
+    elsif time_obj.length == 2 && num == 2
+      View.spaced_output_1
+      list_of_card_obj.check_box_2
+    elsif time_obj.length > 2 && num > 2
+      View.spaced_output_1
+      list_of_card_obj.check_box_3
+    else
+      View.first_time
+      list_of_card_obj.sort_by_box!
     end
 
 
